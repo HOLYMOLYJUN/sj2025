@@ -1,0 +1,27 @@
+
+.vertical-lines {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+.vertical-lines__line {
+    background-color: #fff;
+    display: block;
+    height: 100%;
+    opacity: 0.2;
+    position: absolute;
+    width: 1px;
+    transform: translateX(-50%);
+}
+.vertical-lines__line:nth-child(1) {
+    left: 16.66%;
+}
+.vertical-lines__line:nth-child(2) {
+    left: 50%;
+}
+.vertical-lines__line:nth-child(3) {
+    right: 16.66%;
+}

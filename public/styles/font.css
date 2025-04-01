@@ -1,0 +1,10 @@
+/* font.css */
+
+@font-face {
+    font-family: 'CanelaText';
+    src: url('/fonts/CanelaText-Black.woff2') format('woff2'),
+         url('/fonts/CanelaText-Black.woff') format('woff'),
+         url('/fonts/CanelaText-Black.eot') format('embedded-opentype');
+    font-weight: 900; /* Black(가장 두꺼운 폰트) */
+    font-style: normal;
+}

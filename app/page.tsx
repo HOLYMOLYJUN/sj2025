@@ -1,95 +1,87 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import React, {useRef, useEffect} from "react";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all"; 
+gsap.registerPlugin(ScrollTrigger); // ScrollTrigger 플러그인 등록
+
+import "../public/styles/common.css"
+import "/public/styles/main.css"
+
+import VerticalLines from "./components/VerticalLines";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  useEffect(() => {
+    const introTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".intro", 
+        start: "top top", 
+        end: "bottom top", 
+        scrub: 1, 
+        pin: true,
+      }
+    });
+    introTl.addLabel('a')
+    .fromTo(
+      ".intro .overlay_black", 
+      { width: "0%" }, 
+      { width: "16.66%", duration: 3 },
+      "a"
+    )
+    .fromTo(
+      ".intro h1", 
+      { color: "#fff" }, 
+      { color: "#498e4f", duration: 3 }, 
+      "a"
+    )
+    .to({}, { duration: 2 }); 
+
+    /* const aboutTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.about',
+        start: 'top 50%',
+        end: "bottom 50%",
+        scrub: 1,
+        pin: true,
+        markers: true,
+      }
+    }); */
+
+
+
+  }, []);
+
+
+  return (
+    <div id="wrapper">
+        <section className="intro">
+            <h1>SANGJUN PORTFOLIO</h1>
+            <div className="video_box">
+              <video src="/videos/intro01.mp4" autoPlay loop muted playsInline width="600" />
+            </div>
+            <div className="svg_box">
+                <img src="/images/scroll.svg" alt="스크롤해주세요" />
+            </div>
+            <div className="overlay_box">
+                <div className="overlay_black"></div>
+                <div className="overlay_black"></div>
+                <div className="overlay_black"></div>
+                <div className="overlay_black"></div>
+                <div className="overlay_black"></div>
+                <div className="overlay_black"></div>
+            </div>
+            <VerticalLines/>
+        </section>
+        <section className="about">
+            <div className="img-box">
+                <div>
+
+                </div>
+            </div>
+            <VerticalLines/>
+        </section>
     </div>
   );
 }

@@ -1,0 +1,77 @@
+/* customCursor.css */
+
+body {
+  cursor: none;
+}
+
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #498e4f;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width .3s ease-out, height .3s ease-out, opacity .3s ease-out, border-color .3s ease-out, background-color .3s ease-out;
+  transform: translate(-50%, -50%);
+  z-index: 99999999;
+  background-color: #498e4f;
+}
+.cursor.hover {
+  width: 40px;
+  height: 40px;
+  border-color: #498e4f; /* 클릭 시 빨간색 테두리 */
+  background-color: rgba(255,255,255,0.5);
+  z-index: 99999999;
+  
+}
+
+.cursor.clicked {
+  width: 50px;
+  height: 50px;
+  border-color: #498e4f; /* 클릭 시 빨간색 테두리 */
+  background-color: rgba(255,255,255,0.5);
+  z-index: 99999999;
+}
+
+
+/* 트레일러(꼬리) 스타일 */
+.trailer {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #498e4f;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: trailAnimation 0.5s ease-out forwards;
+  z-index: 9999999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 트레일러 애니메이션 */
+@keyframes trailAnimation {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.1);
+  }
+}

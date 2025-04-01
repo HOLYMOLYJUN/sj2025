@@ -1,0 +1,53 @@
+/* header.css */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    color: #fff;
+
+    padding: 10px;
+    width: 100%;
+
+}
+
+header .logo a {
+    display: block;
+    font-size: 22px;
+}
+header .gnb {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 16.66%;
+    padding: 10px;
+}
+header .gnb ul li {
+    position: absolute;
+    left: 10px;
+}
+header .gnb ul li:nth-child(2) {
+    left: calc(33.33% + 10px);
+}
+header .gnb ul li:nth-child(3) {
+    left: calc(66.66% + 10px);
+}
+header .gnb ul li a {
+    position: relative;
+    width: 100%;
+}
+header .gnb ul li a::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    bottom: -2px;
+    left: 0;
+    transition: width .4s;
+}
+header .gnb ul li a:hover::after {
+    width: 100%;
+}
