@@ -13,8 +13,15 @@ header {
 }
 
 header .logo a {
-    display: block;
+    display: inline-block;
     font-size: 22px;
+    color: #fff;
+    transition: color .3s;
+}
+
+
+header .logo a:hover {
+    color: #498e4f;
 }
 header .gnb {
     position: absolute;
@@ -27,17 +34,27 @@ header .gnb ul li {
     position: absolute;
     left: 10px;
 }
+
 header .gnb ul li:nth-child(2) {
     left: calc(33.33% + 10px);
 }
 header .gnb ul li:nth-child(3) {
     left: calc(66.66% + 10px);
 }
+
 header .gnb ul li a {
     position: relative;
     width: 100%;
+    transition: all .3s;
+    color: #fff;
 }
-header .gnb ul li a::after {
+header .gnb ul li a:hover {
+    color: #498e4f;
+}
+
+
+
+/* header .gnb ul li a::after {
     position: absolute;
     content: "";
     display: block;
@@ -48,6 +65,7 @@ header .gnb ul li a::after {
     left: 0;
     transition: width .4s;
 }
+
 header .gnb ul li a:hover::after {
     width: 100%;
-}
+} */

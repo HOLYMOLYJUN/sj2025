@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import TextHover from "./TextHover";
 import Link from "next/link";
 import "@/public/styles/header.css"
 
@@ -9,19 +10,25 @@ export default function Header() {
         <header>
             <h1 className="logo">
                 <Link href="#">
-                Sangjun
+                    <TextHover text="LEESANGJUN"/>
                 </Link>
             </h1>
             <nav className="gnb">
                 <ul>
                     <li>
-                        <Link href="#">About</Link>
+                        <Link href="#">
+                            <TextHover text="About"/>
+                        </Link>
                     </li>
                     <li>
-                        <Link href="#">Works</Link>
+                        <Link href="#">
+                            <TextHover text="Works"/>
+                        </Link>
                     </li>
                     <li>
-                        <Link href="#">Contact</Link>
+                        <Link href="#">
+                            <TextHover text="Contact"/>
+                        </Link>
                     </li>
                 </ul>
             </nav>
