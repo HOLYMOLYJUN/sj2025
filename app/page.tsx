@@ -31,6 +31,10 @@ import Work02 from "@/public/images/works_jungdo.jpg"
 import Work03 from "@/public/images/works_tinit.jpg"
 import Work04 from "@/public/images/works_renewable.jpg"
 
+import Project01 from "@/public/images/mockup_qude.jpg"
+import Project02 from "@/public/images/mockup_busan.jpg"
+import Project03 from "@/public/images/mockup_naver2.jpg"
+
 import { ArrowRight } from "iconoir-react";
 
 const worksData = [Work01, Work02, Work03, Work04];
@@ -526,9 +530,27 @@ export default function Home() {
                   </p>
               </div>
               <ul className="projects_list" ref={projectsListRef}>
-                  <li className="projects_item"></li>
-                  <li className="projects_item"></li>
-                  <li className="projects_item"></li>
+                  <li className="projects_item">
+                    <a href="#" className="project_link">
+                        <div>
+                          <Image src={Project01} alt="QUDE" />
+                        </div>
+                    </a>
+                  </li>
+                  <li className="projects_item">
+                    <a href="#" className="project_link">
+                        <div>
+                          <Image src={Project02} alt="busan" />
+                        </div>
+                    </a>
+                  </li>
+                  <li className="projects_item">
+                    <a href="#" className="project_link">
+                        <div>
+                          <Image src={Project03} alt="naver" />
+                        </div>
+                    </a>
+                  </li>
               </ul>
           </div>
           <VerticalLines/>
