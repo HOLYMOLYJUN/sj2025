@@ -11,9 +11,10 @@
 
 /* body 기본 스타일 */
 body {
-  font-family: CanelaText;
+  font-family: Pretendard, CanelaText;
   line-height: 1.5;
   position: relative;
+  background-color: #121212;
 }
 body::after {
   content: "";
@@ -78,4 +79,46 @@ button {
 
 textarea {
   resize: vertical;
+}
+
+
+h1::selection {
+  background-color: #498e4f;
+  color: #f9f5ec;
+}
+h2::selection {
+  background-color: #498e4f;
+  color: #f9f5ec;
+}
+h3::selection {
+  background-color: #498e4f;
+  color: #f9f5ec;
+}
+p::selection {
+  background-color: #498e4f;
+  color: #f9f5ec;
+}
+br::selection {
+  background-color: #498e4f;
+  color: #f9f5ec;
+}
+
+span::selection {
+  background-color: #498e4f;
+  color: #f9f5ec;
+}
+
+img::selection {
+  background-color: #498e4f;
+  color: #f9f5ec;
+}
+
+a::selection {
+  background-color: #498e4f;
+  color: #f9f5ec;
+}
+
+input::selection {
+  background-color: #498e4f;
+  color: #f9f5ec;
 }

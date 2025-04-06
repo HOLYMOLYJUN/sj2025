@@ -21,7 +21,7 @@ export default function SmoothScroll() {
     // cleanup
     return () => {
       lenis.destroy(); 
-    };
+    };  
   }, []);
 
   return null; 

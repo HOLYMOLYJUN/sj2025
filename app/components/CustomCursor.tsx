@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import '../../public/styles/customCursor.css';
+import '../styles/customCursor.css';
 
 interface Trailer {
   x: number;
@@ -48,7 +48,7 @@ const CustomCursor: React.FC = () => {
     document.addEventListener('mousemove', moveCursor);
     document.addEventListener('mousedown', clickEffect);
 
-    const elements = document.querySelectorAll('a, input, button, span, label, textarea');
+    const elements = document.querySelectorAll('a, input, button, span, label, textarea, .works_item');
     elements.forEach((el) => {
       el.addEventListener('mouseenter', addHoverEffect);
       el.addEventListener('mouseleave', removeHoverEffect);

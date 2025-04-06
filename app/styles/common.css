@@ -1,8 +1,4 @@
 
-body {
-    overflow-x: hidden;
-}
-
 .vertical-lines {
     width: 100%;
     height: 100%;
@@ -10,6 +6,7 @@ body {
     top: 0;
     left: 0;
     z-index: 9;
+    pointer-events: none;
 }
 
 .vertical-lines__line {
@@ -29,6 +26,10 @@ body {
 }
 .vertical-lines__line:nth-child(3) {
     right: 16.66%;
+}
+
+.skills .vertical-lines__line {
+    background-color: #000;
 }
 
 .text-hover_inner {

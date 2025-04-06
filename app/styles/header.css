@@ -9,7 +9,7 @@ header {
 
     padding: 10px;
     width: 100%;
-
+    font-family: CanelaText;
 }
 
 header .logo a {
@@ -42,30 +42,29 @@ header .gnb ul li:nth-child(3) {
     left: calc(66.66% + 10px);
 }
 
-header .gnb ul li a {
+header .gnb ul li button {
     position: relative;
     width: 100%;
     transition: all .3s;
     color: #fff;
+    font-size: 16px;
 }
-header .gnb ul li a:hover {
+header .gnb ul li button:hover {
     color: #498e4f;
 }
 
-
-
-/* header .gnb ul li a::after {
-    position: absolute;
-    content: "";
-    display: block;
-    width: 0%;
-    height: 2px;
-    background-color: #fff;
-    bottom: -2px;
-    left: 0;
-    transition: width .4s;
+.white header .logo a {
+    color: #121212;
 }
 
-header .gnb ul li a:hover::after {
-    width: 100%;
-} */
+.white header .logo a:hover {
+    color: #498e4f;
+}
+
+.white header .gnb ul li button {
+    color: #121212;
+}
+
+.white header .gnb ul li button:hover {
+    color: #498e4f;
+}
