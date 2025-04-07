@@ -399,11 +399,11 @@ export default function Home() {
                       <span className="skill-text">Next.js</span>
                     </div>
                     <div className="skills-item">
-                      <SkillsItem item="javaScript" />
+                      <SkillsItem item="javascript" />
                       <span className="skill-text">JavaScript</span>
                     </div>
                     <div className="skills-item">
-                      <SkillsItem item="typeScript" />
+                      <SkillsItem item="typescript" />
                       <span className="skill-text">TypeScript</span>
                     </div>
                     <div className="skills-item">
