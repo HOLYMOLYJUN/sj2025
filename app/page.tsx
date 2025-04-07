@@ -294,6 +294,36 @@ export default function Home() {
     };
   }, [updateTopOffset]);
 
+  useEffect(() => {
+    const items = gsap.utils.toArray(".projects_item") as HTMLElement[];
+
+    items.forEach((item) => {
+      const image = item.querySelector("img");
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: item,
+          start: "40% 60%",
+          end: "100% 30%",
+          scrub: true,
+        },
+      })
+      .to(item, { opacity: 1 })
+      .to(item, { opacity: 0.2 });
+
+      if (image) {
+        gsap.to(image, {
+          yPercent: -5,
+          scrollTrigger: {
+            trigger: item,
+            start: "40% 60%",
+            end: "100% 40%",
+            scrub: true,
+          },
+        });
+      }
+    });
+  }, []);
   
   return (
     <div id="wrapper">

@@ -17,12 +17,14 @@ header .logo a {
     font-size: 22px;
     color: #fff;
     transition: color .3s;
+    line-height: 1.2;
 }
 
 
 header .logo a:hover {
     color: #498e4f;
 }
+
 header .gnb {
     position: absolute;
     width: 100%;
