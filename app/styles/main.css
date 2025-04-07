@@ -541,13 +541,11 @@
     margin-left: calc(50% + 10px);
     height: auto;
     aspect-ratio: 1 / 1.2;
-    background-color: #f9f5ec;
     margin-bottom: 16vh;
     
     color: #121212;
 
     position: relative;
-    overflow: hidden;
 }
 
 .projects .projects_content .projects_list .projects_item:last-child {
@@ -560,6 +558,7 @@
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 .projects .project_link img {
@@ -570,6 +569,30 @@
     left: 0;
 }
 
+.projects .projects_content .projects_list .projects_item .des {
+    color: #fff;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1vh;
+    font-size: clamp(14px, 1.15vw, 16px);
+}
+
+.projects .projects_content .projects_list .projects_item .des a {
+    transition: all .3s;
+    font-size: clamp(14px, 1.15vw, 16px);
+}
+
+.projects .projects_content .projects_list .projects_item .des a:hover {
+    color: #498e4f;
+}
+
+.projects .projects_content .projects_list .projects_item .des span {
+    position: relative;
+    top: 3px;
+    font-size: clamp(12px, 1vw, 14px);
+}
 
 
 

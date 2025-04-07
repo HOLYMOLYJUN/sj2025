@@ -35,7 +35,7 @@ import Project01 from "@/public/images/mockup_qude.jpg"
 import Project02 from "@/public/images/mockup_busan.jpg"
 import Project03 from "@/public/images/mockup_naver2.jpg"
 
-import { ArrowRight } from "iconoir-react";
+import { ArrowRight, ArrowUpRight } from "iconoir-react";
 
 const worksData = [Work01, Work02, Work03, Work04];
 
@@ -316,7 +316,7 @@ export default function Home() {
           yPercent: -5,
           scrollTrigger: {
             trigger: item,
-            start: "40% 60%",
+            start: "30% 50%",
             end: "100% 40%",
             scrub: true,
           },
@@ -556,30 +556,43 @@ export default function Home() {
               <div className="title_box" ref={titleBoxRef}>
                   <h2>Projects</h2>
                   <p>
-                  클론 코딩을 통한 시멘틱 마크업의 중요성과 Class Naming 작성법, 접근성을 위한 IR기법과 효율적인 이미지 로딩을 위한 IS기법을 중점으로 두며 Swiper 라이브러리와 제이쿼리를 통한 다양한 스크립트 구현하였습니다.
+                  GSAP을 비롯한 애니메이션 라이브러리를 활용하여 사용자 경험을 고려한 인터랙티브 웹 구현에 집중하였으며, Swiper 및 jQuery 등 다양한 UI 스크립트를 실습하며 기능적인 완성도를 높였습니다.
+                  클론 코딩 과정을 통해 시멘틱 마크업의 구조적 중요성과 일관성 있는 클래스 네이밍 기법을 체득하였고, 접근성을 위한 IR 기법과 이미지 최적화를 위한 IS 기법의 적용을 통해 퍼포먼스 향상에도 주력하였습니다.
                   </p>
               </div>
               <ul className="projects_list" ref={projectsListRef}>
                   <li className="projects_item">
-                    <a href="#" className="project_link">
+                    <a href="https://holymolyjun.github.io/qude"  target="_blank" className="project_link">
                         <div>
                           <Image src={Project01} alt="QUDE" />
                         </div>
                     </a>
+                    <div className="des">
+                      <p>Qude : GSAP 반응형 클론코딩</p>
+                      <a href="https://sanjuuni32.notion.site/Qude-GSAP-1c1bee0303778120aaa3e7cf00f2e3d1" target="_blank" className="code-review">Code Review <span><ArrowUpRight/></span></a>
+                    </div>
                   </li>
                   <li className="projects_item">
-                    <a href="#" className="project_link">
+                    <a href="https://holymolyjun.github.io/busancityhall"  target="_blank" className="project_link">
                         <div>
                           <Image src={Project02} alt="busan" />
                         </div>
                     </a>
+                    <div className="des">
+                      <p>부산광역시 : Swiper활용 클론코딩</p>
+                      <a href="https://sanjuuni32.notion.site/Swiper-1c1bee030377815d90fedad199eabbfc" target="_blank" className="code-review">Code Review <span><ArrowUpRight/></span></a>
+                    </div>
                   </li>
                   <li className="projects_item">
-                    <a href="#" className="project_link">
+                    <a href="https://holymolyjun.github.io/naver" target="_blank"  className="project_link">
                         <div>
                           <Image src={Project03} alt="naver" />
                         </div>
                     </a>
+                    <div className="des">
+                      <p>Naver : React  클론코딩</p>
+                      <a href="https://sanjuuni32.notion.site/Naver-React-1c1bee0303778108b49fddcf4376cc35" target="_blank" className="code-review">Code Review <span><ArrowUpRight/></span></a>
+                    </div>
                   </li>
               </ul>
           </div>
