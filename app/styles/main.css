@@ -672,6 +672,9 @@ footer .copyright {
     font-size: clamp(12px, 1vw, 14px);
 }
 
+.mobile-block {
+    display: none;
+}
 
 @media screen and (max-width: 767px) {
     body {
