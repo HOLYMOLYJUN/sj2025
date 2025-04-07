@@ -391,19 +391,19 @@ export default function Home() {
                   </div>
                   <div className="skills-item-wrap">
                     <div className="skills-item">
-                      <SkillsItem item="React" />
+                      <SkillsItem item="react" />
                       <span className="skill-text">React</span>
                     </div>
                     <div className="skills-item">
-                      <SkillsItem item="Next.js" />
+                      <SkillsItem item="next.js" />
                       <span className="skill-text">Next.js</span>
                     </div>
                     <div className="skills-item">
-                      <SkillsItem item="JavaScript" />
+                      <SkillsItem item="javaScript" />
                       <span className="skill-text">JavaScript</span>
                     </div>
                     <div className="skills-item">
-                      <SkillsItem item="TypeScript" />
+                      <SkillsItem item="typeScript" />
                       <span className="skill-text">TypeScript</span>
                     </div>
                     <div className="skills-item">
