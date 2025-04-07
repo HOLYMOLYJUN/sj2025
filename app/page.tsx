@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger); // ScrollTrigger 플러그인 등록
 
 import { Element } from "react-scroll";
+import emailjs from "emailjs-com";
 
 import Image from "next/image";
 import youngMe01 from "@/public/images/youngMe01.jpg"
@@ -98,6 +99,11 @@ const worksItems: WorkItem[] = [
 export default function Home() {
 
   useEffect(() => {
+    window.history.scrollRestoration = 'manual'; // 브라우저의 scroll 위치 복원 비활성화
+    window.scrollTo(0, 0); // 강제로 맨 위로
+  }, []);
+  
+  useEffect(() => {
     const introTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".intro", 
@@ -152,10 +158,13 @@ export default function Home() {
     )
     .to({}, { duration: 2 }); 
 
+
   }, []);
 
 
   useEffect(() => {
+
+
     const aboutTl = gsap.timeline({
       scrollTrigger: {
         trigger: ".about",
@@ -221,9 +230,10 @@ export default function Home() {
   }, []);
   
   useEffect(() => {
+
     const skillTrigger = ScrollTrigger.create({
       trigger: ".skills", 
-      start: "top-=20   top", 
+      start: "top-=20 top", 
       end: "bottom top+=5",
       onEnter: () => {document.body.classList.add('white');},
       onEnterBack: () => {document.body.classList.add('white');},
@@ -237,7 +247,7 @@ export default function Home() {
       {
         autoAlpha: 1,
         y: 0,
-        duration: 2,
+        duration: 40,
         ease: "power2.out",
         scrollTrigger: {
           trigger: ".skills .skills_box",
@@ -278,6 +288,7 @@ export default function Home() {
   const projectsListRef = useRef<HTMLUListElement>(null);
 
   const updateTopOffset = useCallback(() => {
+
     if (titleBoxRef.current && projectsListRef.current) {
       const titleBoxHeight = titleBoxRef.current.clientHeight;
       projectsListRef.current.style.top = `-${titleBoxHeight}px`;
@@ -295,6 +306,7 @@ export default function Home() {
   }, [updateTopOffset]);
 
   useEffect(() => {
+    
     const items = gsap.utils.toArray(".projects_item") as HTMLElement[];
 
     items.forEach((item) => {
@@ -325,7 +337,40 @@ export default function Home() {
     });
   }, []);
   
+
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [sent, setSent] = useState(false);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const message = inputRef.current?.value;
+    if (!message) return;
+
+    const templateParams = {
+      message,
+    };
+
+    emailjs
+      .send(
+        "service_tcprdp3", 
+        "template_vx2gg9d",     
+        templateParams,
+        "JrdaMB5ck-KHg_01s" 
+      )
+      .then(() => {
+        setSent(true);
+        if (inputRef.current) inputRef.current.value = "";
+      })
+      .catch((error) => {
+        console.error("이메일 전송 실패:", error);
+      });
+  };
+
+
+
   return (
+    <>
     <div id="wrapper">
         <Element name="intro">
         <section className="intro">
@@ -621,14 +666,21 @@ export default function Home() {
               </div>
             </div>
             <div className="footer-bottom">
+            <form onSubmit={sendEmail}>
                 <div className="feedback">
-                    <input type="text" placeholder="Leave me a line of feedback if you can " />
-                    <button>
+                    <input
+                      type="text"
+                      placeholder="Leave me a line of feedback if you can"
+                      ref={inputRef}
+                    />
+                    <button type="submit">
                       <span>
-                        <ArrowRight/>
+                        <ArrowRight />
                       </span>
                     </button>
-                </div>
+                  </div>
+                  {sent && <p style={{ color: "green", padding: '10px' }}>감사합니다! 피드백이 전송되었습니다.</p>}
+                </form>
             </div>
             <div className="copyright">
                 <p>&copy; 2025 Lee-SangJun All Rights Reserved</p>
@@ -646,5 +698,6 @@ export default function Home() {
         </div>
 
     </div>
+    </>
   );
 }

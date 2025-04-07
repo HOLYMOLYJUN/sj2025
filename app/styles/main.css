@@ -25,6 +25,7 @@
     height: 100vh;
     position: relative;
     overflow: hidden;
+    background-color: #121212;
 }
 .intro .video_box video {
     object-fit: cover;
@@ -274,7 +275,7 @@
 .skills .skills_box {
     width: 66%;
     margin: 0 auto;
-    padding: 100px 0px 120px;
+    padding: 8vw 0px 9vw;
 }
 .skills .skills_box .skills-title {
     width: 100%;
@@ -458,7 +459,7 @@
 
 .works .works_item .works_text .top h3{
     font-size: 1.6vw;
-    font-size: clamp(22px, 1.6vw, 26px);
+    font-size: clamp(16px, 1.6vw, 26px);
     margin-bottom: 5px;
     font-weight: 600;
     line-height: 1.2;
@@ -468,7 +469,7 @@
 .works .works_item .works_text .top p {
     
     font-size: 1.15vw;
-    font-size: clamp(14px, 1.15vw, 18px);
+    font-size: clamp(12px, 1.15vw, 18px);
     line-height: 1.3;
     opacity: 0;
     transition: .3s;
@@ -477,7 +478,7 @@
 }
 
 .works .works_item .works_text .bottom {
-    font-size: clamp(12px, 1vw, 16px);
+    font-size: clamp(9px, 1vw, 16px);
 }
 
 
@@ -567,6 +568,7 @@
     position: absolute;
     top: 0;
     left: 0;
+
 }
 
 .projects .projects_content .projects_list .projects_item .des {
