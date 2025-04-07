@@ -592,7 +592,16 @@ export default function Home() {
             </div>
           </div>
           <VerticalLines/>
-        </footer></Element>
+        </footer>
+        </Element>
+
+        <div className="mobile-block">
+          <div className="mobile-message">
+            <p>Comming Soon!</p>
+            <p>모바일 반응형 뷰는 현재 제작중입니다.<br />번거롭지만 PC로 이용 부탁드립니다!</p>
+          </div>
+        </div>
+
     </div>
   );
 }
