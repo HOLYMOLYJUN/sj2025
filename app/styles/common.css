@@ -63,11 +63,16 @@
 }
 .vertical-lines__line:nth-child(2) {
     left: 50%;
-    display: none;
 }
 .vertical-lines__line:nth-child(3) {
     right: 1%;
 }
 
 }
-  
+@media screen and (max-width: 768px) {
+    
+    .vertical-lines__line:nth-child(2) {
+        display: none;
+    }
+}
+      
