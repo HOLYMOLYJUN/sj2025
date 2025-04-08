@@ -104,183 +104,213 @@ export default function Home() {
   }, []);
   
   useEffect(() => {
-    const introTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".intro", 
-        start: "top top", 
-        end: "bottom top", 
-        scrub: 1, 
-        pin: true,
-      }
+    const mm = gsap.matchMedia();
+  
+    mm.add("(min-width: 1025px)", () => {
+      const introTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".intro", 
+          start: "top top", 
+          end: "bottom top", 
+          scrub: 1, 
+          pin: true,
+        }
+      });
+  
+      introTl.addLabel('a')
+        .fromTo(
+          ".intro .overlay_black.black1", 
+          { width: "0%" }, 
+          { width: "16.66%", duration: 1 },
+          "a"
+        )
+        .fromTo(
+          ".intro .overlay_black.black2", 
+          { width: "0%" }, 
+          { width: "16.66%", duration: 2 },
+          "a"
+        )
+        .fromTo(
+          ".intro .overlay_black.black3", 
+          { width: "0%" }, 
+          { width: "16.66%", duration: 3 },
+          "a"
+        )
+        .fromTo(
+          ".intro .overlay_black.black4", 
+          { width: "0%" }, 
+          { width: "16.66%", duration: 4 },
+          "a"
+        )
+        .fromTo(
+          ".intro .overlay_black.black5", 
+          { width: "0%" }, 
+          { width: "16.66%", duration: 5 },
+          "a"
+        )
+        .fromTo(
+          ".intro .overlay_black.black6", 
+          { width: "0%" }, 
+          { width: "16.66%", duration: 6 },
+          "a"
+        )
+        .fromTo(
+          ".intro h1", 
+          { color: "#fff" }, 
+          { color: "#498e4f", duration: 3 }, 
+          "a"
+        )
+        .to({}, { duration: 2 }); // 마지막 딜레이
     });
-    introTl.addLabel('a')
-    .fromTo(
-      ".intro .overlay_black.black1", 
-      { width: "0%" }, 
-      { width: "16.66%", duration: 1 },
-      "a"
-    )
-    .fromTo(
-      ".intro .overlay_black.black2", 
-      { width: "0%" }, 
-      { width: "16.66%", duration: 2 },
-      "a"
-    )
-    .fromTo(
-      ".intro .overlay_black.black3", 
-      { width: "0%" }, 
-      { width: "16.66%", duration: 3 },
-      "a"
-    )
-    .fromTo(
-      ".intro .overlay_black.black4", 
-      { width: "0%" }, 
-      { width: "16.66%", duration: 4 },
-      "a"
-    )
-    .fromTo(
-      ".intro .overlay_black.black5", 
-      { width: "0%" }, 
-      { width: "16.66%", duration: 5 },
-      "a"
-    )
-    .fromTo(
-      ".intro .overlay_black.black6", 
-      { width: "0%" }, 
-      { width: "16.66%", duration: 6 },
-      "a"
-    )
-    .fromTo(
-      ".intro h1", 
-      { color: "#fff" }, 
-      { color: "#498e4f", duration: 3 }, 
-      "a"
-    )
-    .to({}, { duration: 2 }); 
-
-
+  
+    return () => mm.revert(); // clean-up
+    
   }, []);
-
-
+  
   useEffect(() => {
-
-
-    const aboutTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".about",
-        start: "center center",
-        end: "+=1000%",
-        scrub: 1,
-        pin: true,
-      }
+    const mm = gsap.matchMedia();
+  
+    mm.add("(min-width: 1025px)", () => {
+      const aboutTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".about",
+          start: "center center",
+          end: "+=1000%",
+          scrub: 1,
+          pin: true,
+        }
+      });
+  
+      aboutTl
+        .addLabel('b')
+        .to({}, { duration: 2 }) // 딜레이
+        .fromTo(
+          ".about .img-card",
+          { scale: 0 },  
+          { scale: 1, duration: 3.5, ease: "power2.out" },
+          "b"
+        )
+        .fromTo(
+          ".bg-doodle svg",
+          { opacity: 0 },
+          { opacity: 0.9, duration: 3, stagger: 1, ease: "power2.out" },
+          "b"
+        )
+        .to({}, { duration: 2 }) // 딜레이
+  
+        // 이미지 카드 개별 이동 + 회전
+        .fromTo(
+          ".about .img-card:nth-child(4)",
+          { x: "-50%", rotate: 0 },
+          { x: "-200%", rotate: -20, scale: 1, duration: 2, ease: "power2.out" }
+        )
+        .fromTo(
+          ".about .img-card:nth-child(3)",
+          { x: "-50%", rotate: 0 },
+          { x: "-100%", rotate: 8, scale: 1, duration: 2, ease: "power2.out" }
+        )
+        .fromTo(
+          ".about .img-card:nth-child(2)",
+          { x: "-50%", rotate: 0 },
+          { x: "20%", rotate: -12, scale: 1, duration: 2, ease: "power2.out" }
+        )
+        .fromTo(
+          ".about .img-card:nth-child(1)",
+          { x: "-50%", rotate: 0 },
+          { x: "100%", rotate: 20, scale: 1, duration: 2, ease: "power2.out" }
+        )
+        .to({}, { duration: 2 }) // 딜레이
+  
+        // 텍스트 오버랩 효과
+        .fromTo(
+          ".about .text-overlap",
+          { backgroundColor: "rgba(0,0,0,0)", backdropFilter: "blur(0px)" },
+          { backgroundColor: "rgba(0,0,0,0.7)", backdropFilter: "blur(80px)", duration: 6, ease: "power2.out" }
+        )
+        .fromTo(
+          ".about .text-box",
+          { autoAlpha: 0, y: 50 },
+          { autoAlpha: 1, y: 0, duration: 6, ease: "power2.out" },
+          "-=3" // 겹치기 시작
+        );
     });
   
-    // Step 1: width, height 확장
-    aboutTl
-      .addLabel('b')
-      .to({},{duration: 2000})
-      .fromTo(
-        ".about .img-card",
-        { scale: 0 },  
-        { scale : 1, duration: 3500, ease: "power2.out" } 
-        , "b"
-      )
-      .fromTo(
-        ".bg-doodle svg",  // 추가한 부분
-        { opacity: 0 },
-        { opacity: 0.9, duration: 3000, stagger: 1, ease: "power2.out" }, 
-        "b"
-      )
-      .to({}, { duration: 2000 }) // 3초 딜레이
+    return () => mm.revert(); // cleanup
+  }, []);
   
-      // Step 2: 각각 translate + rotate 적용
-      .fromTo(
-        ".about .img-card:nth-child(4)",
-        { x: "-50%",  rotate: 0 },
-        { x: "-200%",  rotate: -20, scale: 1, duration: 2000, ease: "power2.out" }
-      )
-      .fromTo(
-        ".about .img-card:nth-child(3)",
-        { x: "-50%",  rotate: 0 },
-        { x: "-100%",  rotate: 8, scale: 1, duration: 2000, ease: "power2.out" }
-      )
-      .fromTo(
-        ".about .img-card:nth-child(2)",
-        { x: "-50%",  rotate: 0 },
-        { x: "20%", rotate: -12, scale: 1, duration: 2000, ease: "power2.out" }
-      )
-      .fromTo(
-        ".about .img-card:nth-child(1)",
-        { x: "-50%",  rotate: 0 },
-        { x: "100%",  rotate: 20, scale: 1, duration: 2000, ease: "power2.out" }
-      )
-      .to({}, { duration: 2000 }) // 3초 딜레이
-      .fromTo(
-        ".about .text-overlap",
-        { backgroundColor: "rgba(0,0,0, 0)", backdropFilter: "blur(0px)" },
-        { backgroundColor: "rgba(0,0,0, 0.7)", backdropFilter: "blur(80px)", duration: 6000, ease: "power2.out" }
-      )
-      .fromTo(
-        ".about .text-box",
-        { autoAlpha: 0, y: 50 }, 
-        { autoAlpha: 1, y: 0, duration: 6000, ease: "power2.out" }, 
-        "-=3000" 
+  
+  useEffect(() => {
+    const mm = gsap.matchMedia();
+  
+    mm.add("(min-width: 0px)", () => {
+      const skillTrigger = ScrollTrigger.create({
+        trigger: ".skills", 
+        start: "top-=20 top", 
+        end: "bottom top+=5",
+        onEnter: () => { document.body.classList.add('white'); },
+        onEnterBack: () => { document.body.classList.add('white'); },
+        onLeave: () => { document.body.classList.remove('white'); },
+        onLeaveBack: () => { document.body.classList.remove('white'); }
+      });
+  
+      gsap.fromTo(
+        ".skills .skills_box",
+        { autoAlpha: 0, y: 50 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 40,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".skills .skills_box",
+            start: "10% 60%", 
+            end: "bottom bottom",
+            scrub: 1,
+          }
+        }
       );
   
-  }, []);
-  
-  useEffect(() => {
-
-    const skillTrigger = ScrollTrigger.create({
-      trigger: ".skills", 
-      start: "top-=20 top", 
-      end: "bottom top+=5",
-      onEnter: () => {document.body.classList.add('white');},
-      onEnterBack: () => {document.body.classList.add('white');},
-      onLeave: () => {document.body.classList.remove('white');},
-      onLeaveBack: () => {document.body.classList.remove('white');}
+      // cleanup
+      return () => {
+        skillTrigger.kill();
+      };
     });
-
-    gsap.fromTo(
-      ".skills .skills_box",
-      { autoAlpha: 0, y: 50 },
-      {
-        autoAlpha: 1,
-        y: 0,
-        duration: 40,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".skills .skills_box",
-          start: "10% 60%", 
-          end: 'bottom bottom',
-          scrub: 1,
-        }
-      }
-    );
-
-    return () => skillTrigger.kill();
-
+  
+    return () => mm.revert(); // 전체 cleanup
+  
   }, []);
+  
 
 
   useEffect(() => {
-    const items = gsap.utils.toArray(".works_item");
-    const totalItems = items.length;
+    const mm = gsap.matchMedia();
   
-    // 총 이동 퍼센트: 각 아이템이 100vw씩 보이고, 4개면 -300% 이동
-    gsap.to(items, {
-      xPercent: -300 * (totalItems - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".works",
-        start: "top top",
-        end: "+=1000%", 
-        scrub: 0.5,    // 스크럽 값을 줄이면 애니메이션이 더 빠르게 반응
-        pin: true,
-        anticipatePin: 1,
-      }
-    })
+    mm.add("(min-width: 1025px)", () => {
+      const items = gsap.utils.toArray(".works_item");
+      const totalItems = items.length;
+  
+      const tween = gsap.to(items, {
+        xPercent: -300 * (totalItems - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".works",
+          start: "top top",
+          end: "+=1000%",
+          scrub: 0.5,
+          pin: true,
+          anticipatePin: 1,
+        }
+      });
+  
+      return () => {
+        tween.scrollTrigger?.kill();
+        tween.kill();
+      };
+    });
+  
+    return () => mm.revert(); // 전체 cleanup
   }, []);
+  
 
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
@@ -288,54 +318,73 @@ export default function Home() {
   const projectsListRef = useRef<HTMLUListElement>(null);
 
   const updateTopOffset = useCallback(() => {
-
-    if (titleBoxRef.current && projectsListRef.current) {
+    if (!titleBoxRef.current || !projectsListRef.current) return;
+  
+    if (window.innerWidth <= 768) {
+      projectsListRef.current.style.top = '0px';
+    } else {
       const titleBoxHeight = titleBoxRef.current.clientHeight;
       projectsListRef.current.style.top = `-${titleBoxHeight}px`;
     }
   }, []);
-
+  
   useEffect(() => {
     updateTopOffset();
-
+  
     window.addEventListener("resize", updateTopOffset);
-
+  
     return () => {
       window.removeEventListener("resize", updateTopOffset);
     };
   }, [updateTopOffset]);
+  
 
   useEffect(() => {
-    
-    const items = gsap.utils.toArray(".projects_item") as HTMLElement[];
-
-    items.forEach((item) => {
-      const image = item.querySelector("img");
-
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: item,
-          start: "40% 60%",
-          end: "100% 30%",
-          scrub: true,
-        },
-      })
-      .to(item, { opacity: 1 })
-      .to(item, { opacity: 0.2 });
-
-      if (image) {
-        gsap.to(image, {
-          yPercent: -5,
+    const mm = gsap.matchMedia();
+  
+    mm.add("(min-width: 1025px)", () => {
+      const items = gsap.utils.toArray(".projects_item") as HTMLElement[];
+  
+      const triggers: ScrollTrigger[] = [];
+  
+      items.forEach((item) => {
+        const image = item.querySelector("img");
+  
+        const tl = gsap.timeline({
           scrollTrigger: {
             trigger: item,
-            start: "30% 50%",
-            end: "100% 40%",
+            start: "40% 60%",
+            end: "100% 30%",
             scrub: true,
           },
-        });
-      }
+        })
+        .to(item, { opacity: 1 })
+        .to(item, { opacity: 0.2 });
+  
+        triggers.push(tl.scrollTrigger!);
+  
+        if (image) {
+          const imgTween = gsap.to(image, {
+            yPercent: -5,
+            scrollTrigger: {
+              trigger: item,
+              start: "30% 50%",
+              end: "100% 40%",
+              scrub: true,
+            },
+          });
+          triggers.push(imgTween.scrollTrigger!);
+        }
+      });
+  
+      return () => {
+        triggers.forEach(trigger => trigger.kill());
+      };
     });
+  
+    return () => mm.revert();
   }, []);
+  
   
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -690,12 +739,6 @@ export default function Home() {
         </footer>
         </Element>
 
-        <div className="mobile-block">
-          <div className="mobile-message">
-            <p>Comming Soon!</p>
-            <p>모바일 반응형 뷰는 현재 제작중입니다.<br />번거롭지만 PC로 이용 부탁드립니다!</p>
-          </div>
-        </div>
 
     </div>
     </>
