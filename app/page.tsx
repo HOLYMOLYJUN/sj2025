@@ -45,6 +45,7 @@ import "./styles/main.css";
 
 import VerticalLines from "./components/VerticalLines";
 import SkillsItem from "./components/SkillsItem";
+import SkillsList from "./components/SkillsList";
 
 type WorkItem = {
   id: number;
@@ -97,6 +98,28 @@ const worksItems: WorkItem[] = [
     skills: ["#React", "#JavaScript", "#TailwindCSS", "#Chart.js"],
     contribution: "UI·UX Design : 50% / FrontEnd : 50%",
   },
+];
+
+// Develop 파트 스킬 데이터 배열 추가
+const developSkills = [
+  { item: "react", label: "React" },
+  { item: "next.js", label: "Next.js" },
+  { item: "javascript", label: "JavaScript" },
+  { item: "typescript", label: "TypeScript" },
+  { item: "html5", label: "HTML5" },
+  { item: "css3", label: "CSS3" },
+  { item: "tailwindcss", label: "Tailwind CSS" },
+  { item: "jquery", label: "jQuery" },
+  { item: "gsap", label: "GSAP" },
+  { item: "chartjs", label: "Chart.js" },
+  { item: "axios", label: "Axios" },
+  { item: "github", label: "Github" },
+];
+
+const designSkills = [
+  { item: "figma", label: "Figma" },
+  { item: "adobephotoshop", label: "Adobe Photoshop" },
+  { item: "adobeillustrator", label: "Adobe Illustrator" },
 ];
 
 export default function Home() {
@@ -537,75 +560,13 @@ export default function Home() {
                 <div className="section-title">
                   <h3>Develop</h3>
                 </div>
-                <div className="skills-item-wrap">
-                  <div className="skills-item">
-                    <SkillsItem item="react" />
-                    <span className="skill-text">React</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="next.js" />
-                    <span className="skill-text">Next.js</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="javascript" />
-                    <span className="skill-text">JavaScript</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="typescript" />
-                    <span className="skill-text">TypeScript</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="html5" />
-                    <span className="skill-text">HTML5</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="css3" />
-                    <span className="skill-text">CSS3</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="tailwindcss" />
-                    <span className="skill-text">Tailwind CSS</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="jquery" />
-                    <span className="skill-text">jQuery</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="gsap" />
-                    <span className="skill-text">GSAP</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="chartjs" />
-                    <span className="skill-text">Chart.js</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="axios" />
-                    <span className="skill-text">Axios</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="github" />
-                    <span className="skill-text">Github</span>
-                  </div>
-                </div>
+                <SkillsList skills={developSkills} />
               </div>
               <div className="content-txt">
                 <div className="section-title">
                   <h3>Design</h3>
                 </div>
-                <div className="skills-item-wrap">
-                  <div className="skills-item">
-                    <SkillsItem item="figma" />
-                    <span className="skill-text">Figma</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="adobephotoshop" />
-                    <span className="skill-text">Adobe Photoshop</span>
-                  </div>
-                  <div className="skills-item">
-                    <SkillsItem item="adobeillustrator" />
-                    <span className="skill-text">Adobe Illustrator</span>
-                  </div>
-                </div>
+                <SkillsList skills={designSkills} />
               </div>
             </div>
             <VerticalLines />
