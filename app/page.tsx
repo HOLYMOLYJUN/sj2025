@@ -406,7 +406,7 @@ export default function Home() {
         "template_vx2gg9d",     
         templateParams,
         "JrdaMB5ck-KHg_01s" 
-      )
+      ) 
       .then(() => {
         setSent(true);
         if (inputRef.current) inputRef.current.value = "";

@@ -265,8 +265,30 @@
 
 .about .text-box .content-txt > div {
     width: 50%;
-    padding: 10px
+    padding: 10px;
 }
+.about .text-box .content-txt .section-title {
+    position: relative;
+}
+
+.about .text-box .content-txt .section-title .my_img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 1 / 1.2;
+
+    transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+.about .text-box .content-txt .section-title .my_img img {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+}
+
+
 
 .skills {
     background-color: #f9f5ec;
